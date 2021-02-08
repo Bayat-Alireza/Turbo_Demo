@@ -22,6 +22,17 @@ export const useStyles = makeStyles((theme: Theme) =>
     searchBox:{
       color:"#fff",
       width:"100%"
+    },
+    listbox: {
+      padding: 0,
+    },
+    option: {
+      borderBottom: `1px solid ${theme.palette.divider}`,
+      backgroundColor:"#FFF",
+      color:"#333",
+      "&:hover":{
+        color:"#fff",
+      }
     }
   })
 );

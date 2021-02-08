@@ -108,6 +108,7 @@ export const Element = () => {
       ListboxComponent={List}
       includeInputInList
       onChange={(e, v) => { if (v) setPath(v) }}
+      classes={{ option: classes.option, listbox: classes.listbox }}
 
       renderInput={(params) => (
         <TextField

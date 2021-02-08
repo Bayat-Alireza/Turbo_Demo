@@ -27,7 +27,7 @@ export default function IconBreadcrumbs(props: BreadCrumbsType) {
           className={classes.icon} />}
         aria-label="breadcrumb">
         {props.pathSections?.map((section, idx) => {
-          return (<Typography color="inherit" key={idx} className={classes.link}>
+          return (<Typography color="textSecondary" key={idx} className={classes.link}>
             {section}
           </Typography>)
         })}

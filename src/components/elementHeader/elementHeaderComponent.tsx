@@ -37,7 +37,7 @@ export const ElementHeader: React.FC<ElementHeaderInfo> = (props: ElementHeaderI
       <div className={classes.element}>
 
         <Typography align="left" variant="h4" color="secondary">
-          {props.path?.name.split(".").pop()}
+          {props.details?.label()}
         </Typography>
         <SmallOutlinedChips transactions={props.details?.transactions() || []} />
 

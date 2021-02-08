@@ -16,9 +16,7 @@ export const SubElements: React.FC<SubElementType> = ({ subElements }) => {
       border: '1px solid #dadde9',
     },
   }))(Tooltip);
-  useEffect(() => {
-    console.log("ashrgf", subElements ? subElements["sequence"] : "")
-  })
+
   return <div>
     <div>
       <Typography style={{ color: '#444' }} gutterBottom variant="h5" color="secondary">
@@ -36,6 +34,7 @@ export const SubElements: React.FC<SubElementType> = ({ subElements }) => {
             const lixiElement = new LixiElement(subEle)
             return (
               <HtmlTooltip
+                key={`${idx}_${lixiElement.name}`}
                 title={<React.Fragment>
                   <Typography variant="h6" style={{ color: "#1976d2" }}>
                     {lixiElement.label()}
@@ -50,7 +49,7 @@ export const SubElements: React.FC<SubElementType> = ({ subElements }) => {
                 <TextField
                   style={{ width: "100%", color: "#fff", boxSizing: "border-box", marginBottom: "0.5rem", padding: "0.5rem" }}
                   inputProps={{ style: { color: "#fff" } }}
-                  key={`${idx}_${lixiElement.name}`}
+
                   variant="filled"
                   color="secondary"
                   value={lixiElement.label()}
@@ -63,11 +62,32 @@ export const SubElements: React.FC<SubElementType> = ({ subElements }) => {
         {subElements && "choice" in subElements ?
           Array.prototype.map.call(subElements["choice"], (subEle, idx) => {
             const lixiElement = new LixiElement(subEle)
-            return (<Typography align="left" key={`${idx}_${lixiElement.name}`} variant="h6" color="secondary">
+            return (
+              <HtmlTooltip
+                key={`${idx}_${lixiElement.name}`}
+                title={<React.Fragment>
+                  <Typography variant="h6" style={{ color: "#1976d2" }}>
+                    {lixiElement.label()}
+                  </Typography>
+                  <Typography variant="body1" >
+                    {lixiElement.documentation()}
+                  </Typography>
+                </React.Fragment>
+                }
+                arrow
+                placement="bottom-start">
+                <TextField
+                  style={{ width: "100%", color: "#fff", boxSizing: "border-box", marginBottom: "0.5rem", padding: "0.5rem" }}
+                  inputProps={{ style: { color: "#fff" } }}
 
-              {lixiElement.name}
+                  variant="filled"
+                  color="secondary"
+                  value={lixiElement.label()}
+                >
+                </TextField>
+              </HtmlTooltip>
 
-            </Typography>)
+            )
           })
           : undefined}
       </div>

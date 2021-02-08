@@ -38,28 +38,28 @@ function App() {
     const simpleTypes = parsedXml.getElementsByTagName('xs:simpleType')
     const LixiEle = new LixiElement(elements[5])
     setAttributes(getLixiElementsChildAttributes(elements[5]))
-    console.log("transactions: ", LixiEle.transactions())
-    console.log("label: ", LixiEle.label())
-    console.log("path: ", LixiEle.path())
-    console.log("name: ", LixiEle.name)
-    console.log("minOccurs: ", LixiEle.minOccurs)
-    console.log("maxOccurs: ", LixiEle.maxOccurs)
-    console.log("hasTypeAtt: ", LixiEle.hasTypeAtt)
-    console.log("type: ", LixiEle.type)
-    console.log("getComplexType: ", LixiEle.getLixiComplexType())
-    console.log("getLixiAttributes: ", LixiEle.getAttributes())
+    // console.log("transactions: ", LixiEle.transactions())
+    // console.log("label: ", LixiEle.label())
+    // console.log("path: ", LixiEle.path())
+    // console.log("name: ", LixiEle.name)
+    // console.log("minOccurs: ", LixiEle.minOccurs)
+    // console.log("maxOccurs: ", LixiEle.maxOccurs)
+    // console.log("hasTypeAtt: ", LixiEle.hasTypeAtt)
+    // console.log("type: ", LixiEle.type)
+    // console.log("getComplexType: ", LixiEle.getLixiComplexType())
+    // console.log("getLixiAttributes: ", LixiEle.getAttributes())
     const attributes = LixiEle.getAttributes()
     if (attributes) {
       for (const att of attributes) {
         const newAtt = new LixiAttribute(att)
-        console.log("Attributes' path: ", newAtt.path())
-        console.log("Attributes' type: ", newAtt.type)
+        // console.log("Attributes' path: ", newAtt.path())
+        // console.log("Attributes' type: ", newAtt.type)
 
         for (const simple of simpleTypes) {
           if (simple.getAttribute("name") === newAtt.type) {
             const newSimple = new LixiSimpleType(simple)
-            console.log("base", newSimple.restrictionBase())
-            console.log("simpleType: ", newSimple.restrictionConstraint())
+            // console.log("base", newSimple.restrictionBase())
+            // console.log("simpleType: ", newSimple.restrictionConstraint())
 
           }
         }
@@ -67,8 +67,8 @@ function App() {
     }
 
 
-    console.log("getLixiSubElements: ", LixiEle.getLixiSubElements())
-    console.log("annotated: ", LixiEle.annotated)
+    // console.log("getLixiSubElements: ", LixiEle.getLixiSubElements())
+    // console.log("annotated: ", LixiEle.annotated)
   }, [])
 
 

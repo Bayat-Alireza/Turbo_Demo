@@ -7,7 +7,7 @@ export const lightTheme = createMuiTheme({
       "@global": {
         "*": {
           "scrollbar-width": "thin",
-          "scrollbar-color": "red",
+          // "scrollbar-color": "red",
         },
         "*::-webkit-scrollbar": {
           width: "1rem",
