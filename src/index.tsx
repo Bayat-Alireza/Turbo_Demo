@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import ThemProvider from "./themeProvider"
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+
+  <ThemProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ThemProvider>,
   document.getElementById('root')
 );
 
