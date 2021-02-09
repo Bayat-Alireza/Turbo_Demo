@@ -19,10 +19,12 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-window": "^1.8.2",
     "cross-fetch": "^3.0.6",
+    "prettify-xml": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "react-window": "^1.8.5",
+    "react-xml-viewer": "^1.2.0",
     "typescript": "~3.7.2"
   },
   "scripts": {
