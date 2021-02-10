@@ -29,7 +29,7 @@ export const ElementAttributes: React.FC<LixiAttribType> = ({ lixiAttribute, par
   }, [lixiAttribute])
   return (
     <div>
-      <Typography variant="h5" style={{ color: "#444" }}>
+      <Typography variant="h5" style={{ color: "#f9a825" }}>
         {`${parentName} Attributes`}
       </Typography>
       <div
@@ -63,6 +63,8 @@ export const ElementAttributes: React.FC<LixiAttribType> = ({ lixiAttribute, par
                         placement="bottom-start"
                       >
                         <TextField
+                          // error={true}
+                          // helperText='Wrong Value!'
                           color="primary"
                           variant="filled"
                           fullWidth
@@ -78,15 +80,27 @@ export const ElementAttributes: React.FC<LixiAttribType> = ({ lixiAttribute, par
             : undefined}
         </form>
       </div>
-      <Divider color="#1976d2"/>
-      <div style={{backgroundColor:"#333", margin:"2rem 0", overflow:"scroll",maxHeight:"25vh",padding:"1rem",border:"solid #444 0.2rem"}}>
-        <Box >
-        <Typography align="left" variant="h4" style={{ color: "#f9a825" }}>
-              LIXI Message
-        </Typography>
+      <Divider color="#1976d2" />
+      <div
+        style={{
+          backgroundColor: "#444",
+          margin: "2rem 0",
+          overflow: "scroll",
+          maxHeight: "25vh",
+          padding: "1rem",
+          border: "solid #444 0.2rem",
+        }}
+      >
+        <Box>
+          <Typography align="left" variant="h4" style={{ color: "#f9a825" }}>
+            LIXI Message
+          </Typography>
         </Box>
         <Typography align="left" variant="body1">
-              <XMLViewer xml={prettifyXml(xmlExample,options)} theme={customThemeVsCode}/>
+          <XMLViewer
+            xml={prettifyXml(xmlExample, options)}
+            theme={customThemeVsCode}
+          />
         </Typography>
       </div>
     </div>

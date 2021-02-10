@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+LIXI*ACC*.xsd
+LIXI*CAL*.xsd

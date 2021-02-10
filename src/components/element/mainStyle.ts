@@ -19,20 +19,29 @@ export const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.text.secondary,
     },
 
-    searchBox:{
-      color:"#fff",
-      width:"100%"
+    searchBox: {
+      color: "#fff",
+      width: "100%",
     },
     listbox: {
       padding: 0,
     },
     option: {
       borderBottom: `1px solid ${theme.palette.divider}`,
-      backgroundColor:"#FFF",
-      color:"#333",
-      "&:hover":{
-        color:"#fff",
-      }
-    }
+      backgroundColor: "#FFF",
+      color: "#333",
+      "&:hover": {
+        color: "#FFF",
+        backgroundColor: "#757575",
+      },
+      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+        color: "#FFF",
+        backgroundColor: "#757575",
+      },
+      "&:select": {
+        color: "#FFF",
+        backgroundColor: "#757575",
+      },
+    },
   })
 );

@@ -17,81 +17,122 @@ export const SubElements: React.FC<SubElementType> = ({ subElements }) => {
     },
   }))(Tooltip);
 
-  return <div>
+  return (
     <div>
-      <Typography style={{ color: '#444' }} gutterBottom variant="h5" color="secondary">
-
-        {subElements ? `Sub-Elements - ${Object.keys(subElements)[0].toUpperCase()}` : "No Sub-Element"}
-
-      </Typography>
-    </div>
-    {subElements ? <div style={{ maxHeight: "50vh", overflowY: "scroll" }} >
-      <CssBaseline />
-
-      <div style={{ display: "flex", alignContent: "flex-start", flexDirection: "column", alignItems: "flex-start", overflow: "hidden", }}>
-        {subElements && "sequence" in subElements ?
-          Array.prototype.map.call(subElements["sequence"], (subEle, idx) => {
-            const lixiElement = new LixiElement(subEle)
-            return (
-              <HtmlTooltip
-                key={`${idx}_${lixiElement.name}`}
-                title={<React.Fragment>
-                  <Typography variant="h6" style={{ color: "#1976d2" }}>
-                    {lixiElement.label()}
-                  </Typography>
-                  <Typography variant="body1" >
-                    {lixiElement.documentation()}
-                  </Typography>
-                </React.Fragment>
-                }
-                arrow
-                placement="bottom-start">
-                <TextField
-                  style={{ width: "100%", color: "#fff", boxSizing: "border-box", marginBottom: "0.5rem", padding: "0.5rem" }}
-                  inputProps={{ style: { color: "#fff" } }}
-
-                  variant="filled"
-                  color="secondary"
-                  value={lixiElement.label()}
-                >
-                </TextField>
-              </HtmlTooltip>
-            )
-          })
-          : undefined}
-        {subElements && "choice" in subElements ?
-          Array.prototype.map.call(subElements["choice"], (subEle, idx) => {
-            const lixiElement = new LixiElement(subEle)
-            return (
-              <HtmlTooltip
-                key={`${idx}_${lixiElement.name}`}
-                title={<React.Fragment>
-                  <Typography variant="h6" style={{ color: "#1976d2" }}>
-                    {lixiElement.label()}
-                  </Typography>
-                  <Typography variant="body1" >
-                    {lixiElement.documentation()}
-                  </Typography>
-                </React.Fragment>
-                }
-                arrow
-                placement="bottom-start">
-                <TextField
-                  style={{ width: "100%", color: "#fff", boxSizing: "border-box", marginBottom: "0.5rem", padding: "0.5rem" }}
-                  inputProps={{ style: { color: "#fff" } }}
-
-                  variant="filled"
-                  color="secondary"
-                  value={lixiElement.label()}
-                >
-                </TextField>
-              </HtmlTooltip>
-
-            )
-          })
-          : undefined}
+      <div>
+        <Typography
+          style={{ color: "#f9a825" }}
+          gutterBottom
+          variant="h5"
+          color="secondary"
+          
+        >
+          {subElements
+            ? `Sub-Elements - ${Object.keys(subElements)[0].toUpperCase()}`
+            : "No Sub-Element"}
+        </Typography>
       </div>
-    </div> : undefined}
-  </div>
+      {subElements ? (
+        <div style={{ maxHeight: "50vh", overflowY: "scroll" }}>
+          <CssBaseline />
+
+          <div
+            style={{
+              display: "flex",
+              alignContent: "flex-start",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              overflow: "hidden",
+            }}
+          >
+            {subElements && "sequence" in subElements
+              ? Array.prototype.map.call(
+                  subElements["sequence"],
+                  (subEle, idx) => {
+                    const lixiElement = new LixiElement(subEle);
+                    return (
+                      <HtmlTooltip
+                        key={`${idx}_${lixiElement.name}`}
+                        title={
+                          <React.Fragment>
+                            <Typography
+                              variant="h6"
+                              style={{ color: "#1976d2" }}
+                            >
+                              {lixiElement.label()}
+                            </Typography>
+                            <Typography variant="body1">
+                              {lixiElement.documentation()}
+                            </Typography>
+                          </React.Fragment>
+                        }
+                        arrow
+                        placement="bottom-start"
+                      >
+                        <TextField
+                          style={{
+                            width: "100%",
+                            color: "#fff",
+                            boxSizing: "border-box",
+                            marginBottom: "0.5rem",
+                            padding: "0.5rem",
+                          }}
+                          inputProps={{ style: { color: "#fff" } }}
+                          variant="filled"
+                          color="secondary"
+                          value={lixiElement.label()}
+                        ></TextField>
+                      </HtmlTooltip>
+                    );
+                  }
+                )
+              : undefined}
+            {subElements && "choice" in subElements
+              ? Array.prototype.map.call(
+                  subElements["choice"],
+                  (subEle, idx) => {
+                    const lixiElement = new LixiElement(subEle);
+                    return (
+                      <HtmlTooltip
+                        key={`${idx}_${lixiElement.name}`}
+                        title={
+                          <React.Fragment>
+                            <Typography
+                              variant="h6"
+                              style={{ color: "#1976d2" }}
+                            >
+                              {lixiElement.label()}
+                            </Typography>
+                            <Typography variant="body1">
+                              {lixiElement.documentation()}
+                            </Typography>
+                          </React.Fragment>
+                        }
+                        arrow
+                        placement="bottom-start"
+                      >
+                        <TextField
+                          style={{
+                            width: "100%",
+                            color: "#fff",
+                            boxSizing: "border-box",
+                            marginBottom: "0.5rem",
+                            padding: "0.5rem",
+                          }}
+                          inputProps={{ style: { color: "#fff" } }}
+                          variant="filled"
+                          color="secondary"
+                          value={lixiElement.label()}
+                        ></TextField>
+                      </HtmlTooltip>
+                    );
+                  }
+                )
+              : undefined}
+          </div>
+        </div>
+      ) : undefined}
+    </div>
+  );
 }
 

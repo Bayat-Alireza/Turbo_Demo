@@ -87,75 +87,82 @@ export const Element = () => {
     // console.log("ele", result)
   }, [path?.name])
 
-  return (<div className={classes.root} >
-    <CssBaseline />
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
 
-    <Autocomplete
-      id="asynchronous-demo"
-      style={{ width: '100%' }}
-      open={open}
-      onOpen={() => {
-        setOpen(true);
-      }}
-      onClose={() => {
-        setOpen(false);
-      }}
-      getOptionSelected={(option, value) => option.name === value.name}
-      getOptionLabel={(option) => option.name}
-      options={options || []}
-      loading={loading}
-      filterSelectedOptions
-      ListboxComponent={List}
-      includeInputInList
-      onChange={(e, v) => { if (v) setPath(v) }}
-      classes={{ option: classes.option, listbox: classes.listbox }}
-
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          style={{ width: '100%' }}
-
-          // style={{ color: "#fff", width: "100%" }}
-          // color="secondary"
-          className={classes.searchBox}
-          label="LIXI Item Path"
-          variant="filled"
-          fullWidth
-          InputProps={{
-            ...params.InputProps, fullWidth: true,
-            className: classes.searchBox,
-            endAdornment: (
-              <React.Fragment>
-                {loading ? <CircularProgress color="inherit" size={20} /> : null}
-                {params.InputProps.endAdornment}
-              </React.Fragment>
-            ),
-          }}
-        />
-      )}
-    />
-    {path ?
-      <Grid container spacing={2} >
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <ElementHeader path={path} details={details} />
-          </Paper>
+      <Autocomplete
+        id="asynchronous-demo"
+        style={{ width: "100%" }}
+        autoHighlight={true}
+        open={open}
+        onOpen={() => {
+          setOpen(true);
+        }}
+        onClose={() => {
+          setOpen(false);
+        }}
+        getOptionSelected={(option, value) => option.name === value.name}
+        getOptionLabel={(option) => option.name}
+        options={options || []}
+        loading={loading}
+        filterSelectedOptions
+        ListboxComponent={List}
+        includeInputInList
+        onChange={(e, v) => {
+          if (v) setPath(v);
+        }}
+        classes={{ option: classes.option, listbox: classes.listbox }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            style={{ width: "100%" }}
+            // style={{ color: "#fff", width: "100%" }}
+            // color="secondary"
+            className={classes.searchBox}
+            label="LIXI Item Path"
+            variant="filled"
+            fullWidth
+            InputProps={{
+              ...params.InputProps,
+              fullWidth: true,
+              className: classes.searchBox,
+              endAdornment: (
+                <React.Fragment>
+                  {loading ? (
+                    <CircularProgress color="inherit" size={20} />
+                  ) : null}
+                  {params.InputProps.endAdornment}
+                </React.Fragment>
+              ),
+            }}
+          />
+        )}
+      />
+      {path ? (
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <ElementHeader path={path} details={details} />
+            </Paper>
+          </Grid>
+          <Grid item xs={4}>
+            <Paper className={classes.paper}>
+              {}
+              <SubElements subElements={details?.getLixiSubElements()} />
+            </Paper>
+          </Grid>
+          <Grid item xs={8}>
+            <Paper className={classes.paper}>
+              <ElementAttributes
+                parentName={details?.label() || ""}
+                lixiAttribute={details?.getAttributes()}
+              />
+            </Paper>
+          </Grid>
         </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>
-            { }
-            <SubElements subElements={details?.getLixiSubElements()} />
-          </Paper>
-        </Grid>
-        <Grid item xs={8}>
-          <Paper className={classes.paper}>
-            <ElementAttributes parentName={details?.name || ""} lixiAttribute={details?.getAttributes()} />
-          </Paper>
-        </Grid>
-
-      </Grid>
-      : undefined}
-
-  </div>)
+      ) : undefined}
+    </div>
+  );
 
 }

@@ -18,8 +18,13 @@ export const lightTheme = createMuiTheme({
           borderRadius: "0.25rem",
         },
         "::-webkit-scrollbar-track": {
-          background: "#d1c4e9",
+          background: "#0d47a1",
           borderRadius: "0.25rem",
+        },
+        "::-webkit-scrollbar-corner":  {
+          background: "#333",
+          borderTop:"solid #444 0.1rem",
+          borderLeft:"solid #444 0.1rem"
         },
       },
     },
